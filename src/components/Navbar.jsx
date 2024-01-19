@@ -59,7 +59,7 @@ const NavBar = () => {
                 enter="transition duration-150 origin-top ease-in-out"
                 enterFrom="transform opacity-0 scale-y-0"
                 enterTo="transfrom opacity-100 scale-y-100"
-                leave="transition duration-300 origin-top ease-in-out"
+                leave="transition duration-150 origin-top ease-in-out"
                 leaveFrom="transform opacity-100 scale-y-100"
                 leaveTo="transform opacity-0 scale-y-0"
             >
