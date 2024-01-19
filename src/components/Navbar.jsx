@@ -2,6 +2,7 @@ import CartIcon from "../assets/svg/cart.svg";
 import MenuIcon from "../assets/svg/menu.svg";
 import { useState } from "react";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
+import { Transition } from "@headlessui/react";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -46,15 +47,23 @@ const NavBar = () => {
                     ))}
                 </div>
 
-                {/* Shopping cart */}
+                {/* Shopping cart button */}
                 <button>
                     <img src={CartIcon} alt="cart icon" className="w-8" />
                 </button>
             </div>
 
             {/* Mobile menu - hidden by default */}
-            {menuOpen && (
-                <div className="flex flex-col bg-zinc-800 p-8 text-white transition">
+            <Transition
+                show={menuOpen}
+                enter="transition duration-150 origin-top ease-in-out"
+                enterFrom="transform opacity-0 scale-y-0"
+                enterTo="transfrom opacity-100 scale-y-100"
+                leave="transition duration-300 origin-top ease-in-out"
+                leaveFrom="transform opacity-100 scale-y-100"
+                leaveTo="transform opacity-0 scale-y-0"
+            >
+                <div className="flex flex-col bg-zinc-800 p-8 text-white">
                     {[
                         "Men's Clothing",
                         "Women's Clothing",
@@ -76,7 +85,7 @@ const NavBar = () => {
                         <img src={ArrowUpIcon} alt="arrow up icon" />
                     </button>
                 </div>
-            )}
+            </Transition>
         </div>
     );
 };
