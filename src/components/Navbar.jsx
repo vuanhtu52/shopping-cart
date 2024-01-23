@@ -3,6 +3,7 @@ import MenuIcon from "../assets/svg/menu.svg";
 import { useState } from "react";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -25,32 +26,45 @@ const NavBar = () => {
                 </button>
 
                 {/* Logo */}
-                <div className="cursor-pointer font-dancing-script text-3xl">
+                <Link
+                    to="/"
+                    className="cursor-pointer font-dancing-script text-3xl"
+                >
                     Random Shop
-                </div>
+                </Link>
 
                 {/* Navigation links */}
                 <div className="hidden items-center justify-between gap-16 lg:flex">
-                    {[
-                        "Men's Clothing",
-                        "Women's Clothing",
-                        "Jewelery",
-                        "Electronics",
-                    ].map((category) => (
-                        <a
-                            key={category}
-                            href="#"
-                            className="font-noto-sans underline-offset-8 hover:underline"
-                        >
-                            {category}
-                        </a>
-                    ))}
+                    <Link
+                        to="men"
+                        className="font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Men's Clothing
+                    </Link>
+                    <Link
+                        to="women"
+                        className="font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Women's Clothing
+                    </Link>
+                    <Link
+                        to="jewelery"
+                        className="font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Jewelery
+                    </Link>
+                    <Link
+                        to="electronics"
+                        className="font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Electronics
+                    </Link>
                 </div>
 
                 {/* Shopping cart button */}
-                <button>
+                <Link to="checkout">
                     <img src={CartIcon} alt="cart icon" className="w-8" />
-                </button>
+                </Link>
             </div>
 
             {/* Mobile menu - hidden by default */}
@@ -64,7 +78,7 @@ const NavBar = () => {
                 leaveTo="transform opacity-0 scale-y-0"
             >
                 <div className="flex flex-col bg-zinc-800 p-8 text-white">
-                    {[
+                    {/* {[
                         "Men's Clothing",
                         "Women's Clothing",
                         "Jewelery",
@@ -77,7 +91,31 @@ const NavBar = () => {
                         >
                             {category}
                         </a>
-                    ))}
+                    ))} */}
+                    <Link
+                        to="men"
+                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Men's Clothing
+                    </Link>
+                    <Link
+                        to="women"
+                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Women's Clothing
+                    </Link>
+                    <Link
+                        to="jewelery"
+                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Jewelery
+                    </Link>
+                    <Link
+                        to="electronics"
+                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                    >
+                        Electronics
+                    </Link>
                     <button
                         className="mt-8 h-8 w-8 self-center p-0"
                         onClick={closeMenu}
