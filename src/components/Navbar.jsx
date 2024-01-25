@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [currentPage, setCurrentPage] = useState("home");
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -19,7 +20,7 @@ const NavBar = () => {
     return (
         <div className="fixed w-full">
             {/* Top nav bar */}
-            <div className="flex min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
+            <div className="flex h-28 min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
                 {/* Mobile menu button */}
                 <button className="block lg:hidden" onClick={toggleMenu}>
                     <img src={MenuIcon} alt="menu icon" className="w-8" />
@@ -37,25 +38,29 @@ const NavBar = () => {
                 <div className="hidden items-center justify-between gap-16 lg:flex">
                     <Link
                         to="men"
-                        className="font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "men" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("men")}
                     >
                         Men's Clothing
                     </Link>
                     <Link
                         to="women"
-                        className="font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "women" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("women")}
                     >
                         Women's Clothing
                     </Link>
                     <Link
                         to="jewelery"
-                        className="font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "jewelery" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("jewelery")}
                     >
                         Jewelery
                     </Link>
                     <Link
                         to="electronics"
-                        className="font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "electronics" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("electronics")}
                     >
                         Electronics
                     </Link>
@@ -80,25 +85,29 @@ const NavBar = () => {
                 <div className="flex flex-col bg-zinc-800 p-8 text-white">
                     <Link
                         to="men"
-                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "men" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("men")}
                     >
                         Men's Clothing
                     </Link>
                     <Link
                         to="women"
-                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "women" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("women")}
                     >
                         Women's Clothing
                     </Link>
                     <Link
                         to="jewelery"
-                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "jewelery" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("jewelery")}
                     >
                         Jewelery
                     </Link>
                     <Link
                         to="electronics"
-                        className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
+                        className={`${currentPage == "electronics" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("electronics")}
                     >
                         Electronics
                     </Link>
