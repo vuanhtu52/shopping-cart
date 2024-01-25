@@ -17,7 +17,7 @@ const NavBar = () => {
     };
 
     return (
-        <div>
+        <div className="fixed w-full">
             {/* Top nav bar */}
             <div className="flex min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
                 {/* Mobile menu button */}
@@ -77,7 +77,7 @@ const NavBar = () => {
                 leaveFrom="transform opacity-100 scale-y-100"
                 leaveTo="transform opacity-0 scale-y-0"
             >
-                <div className="fixed flex w-full flex-col bg-zinc-800 p-8 text-white">
+                <div className="flex flex-col bg-zinc-800 p-8 text-white">
                     <Link
                         to="men"
                         className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
