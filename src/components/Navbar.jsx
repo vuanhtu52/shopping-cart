@@ -18,7 +18,7 @@ const NavBar = () => {
     };
 
     return (
-        <div className="fixed w-full">
+        <div className="fixed top-0 w-full">
             {/* Top nav bar */}
             <div className="flex h-28 min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
                 {/* Mobile menu button */}
