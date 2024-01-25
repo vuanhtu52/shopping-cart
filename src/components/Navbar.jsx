@@ -77,21 +77,7 @@ const NavBar = () => {
                 leaveFrom="transform opacity-100 scale-y-100"
                 leaveTo="transform opacity-0 scale-y-0"
             >
-                <div className="flex flex-col bg-zinc-800 p-8 text-white">
-                    {/* {[
-                        "Men's Clothing",
-                        "Women's Clothing",
-                        "Jewelery",
-                        "Electronics",
-                    ].map((category) => (
-                        <a
-                            key={category}
-                            href="#"
-                            className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
-                        >
-                            {category}
-                        </a>
-                    ))} */}
+                <div className="fixed flex w-full flex-col bg-zinc-800 p-8 text-white">
                     <Link
                         to="men"
                         className="border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline"
