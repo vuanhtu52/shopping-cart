@@ -7,9 +7,9 @@ const HomePage = () => {
     return (
         <div>
             Home page
-            {lst.map((i) => (
+            {/* {lst.map((i) => (
                 <div key={i}>Hello</div>
-            ))}
+            ))} */}
         </div>
     );
 };

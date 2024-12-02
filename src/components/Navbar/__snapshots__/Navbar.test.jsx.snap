@@ -1,0 +1,66 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navbar > renders navbar 1`] = `
+<div>
+  <div
+    class="fixed top-0 w-full"
+  >
+    <div
+      class="flex h-28 min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white"
+    >
+      <button
+        class="block lg:hidden"
+      >
+        <img
+          alt="menu icon"
+          class="w-8"
+          src="/src/assets/svg/menu.svg"
+        />
+      </button>
+      <a
+        class="cursor-pointer font-dancing-script text-3xl"
+        href="/"
+      >
+        Random Shop
+      </a>
+      <div
+        class="hidden items-center justify-between gap-16 lg:flex"
+      >
+        <a
+          class=" font-noto-sans underline-offset-8 hover:underline"
+          href="/men"
+        >
+          Men's Clothing
+        </a>
+        <a
+          class=" font-noto-sans underline-offset-8 hover:underline"
+          href="/women"
+        >
+          Women's Clothing
+        </a>
+        <a
+          class=" font-noto-sans underline-offset-8 hover:underline"
+          href="/jewelery"
+        >
+          Jewelery
+        </a>
+        <a
+          class=" font-noto-sans underline-offset-8 hover:underline"
+          href="/electronics"
+        >
+          Electronics
+        </a>
+      </div>
+      <a
+        href="/checkout"
+      >
+        <img
+          alt="cart icon"
+          class="w-8"
+          src="/src/assets/svg/cart.svg"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;
