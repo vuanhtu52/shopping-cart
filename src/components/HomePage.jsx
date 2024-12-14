@@ -1,15 +1,46 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import Carousel from "./Carousel";
+
 const HomePage = () => {
-    let lst = [];
-    for (let i = 0; i < 100; i++) {
-        lst.push(i);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            // .then(json=>console.log(json))
+            .then(json => setItems(json))
+            // .then(console.log(items))
+    }, []);
+
+    const getCarouselItems = () => {
+        return Object.values(
+            items.reduce((categoriesMap, currentItem) => {
+                if (!categoriesMap[currentItem.category]) {
+                    categoriesMap[currentItem.category] = currentItem;
+                }
+                return categoriesMap;
+            }, {})
+        );
+    }
+
+    const getCarouselSlides = () => {
+        let selectedItems = Object.values(
+            items.reduce((categoriesMap, currentItem) => {
+                if (!categoriesMap[currentItem.category]) {
+                    categoriesMap[currentItem.category] = currentItem;
+                }
+                return categoriesMap;
+            }, {})
+        );
+
+        return selectedItems.map(item => item["image"]);
     }
 
     return (
-        <div>
+        <div className="w-[60%] m-auto pt-11">
             Home page
-            {/* {lst.map((i) => (
-                <div key={i}>Hello</div>
-            ))} */}
+            <Carousel slides={getCarouselSlides()} />
         </div>
     );
 };
