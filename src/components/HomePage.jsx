@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Carousel from "./Carousel";
+import MenWearImage from "../assets/jpg/men-wear.jpg";
+import WomenWearImage from "../assets/jpg/women-wear.jpg";
+import JewelleryImage from "../assets/jpg/jewellery.jpg";
+import ElectronicsImage from "../assets/jpg/electronics.png";
 
 const HomePage = () => {
     const [items, setItems] = useState([]);
@@ -38,9 +42,8 @@ const HomePage = () => {
     }
 
     return (
-        <div className="w-[60%] m-auto pt-11">
-            Home page
-            <Carousel slides={getCarouselSlides()} />
+        <div className="w-[100%] m-auto">
+            <Carousel slides={[MenWearImage, WomenWearImage, JewelleryImage, ElectronicsImage]}/>
         </div>
     );
 };

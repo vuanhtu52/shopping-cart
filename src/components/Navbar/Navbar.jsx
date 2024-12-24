@@ -18,7 +18,7 @@ const NavBar = () => {
     };
 
     return (
-        <div className="fixed top-0 w-full">
+        <div className="fixed top-0 w-full z-50">
             {/* Top nav bar */}
             <div className="flex h-28 min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
                 {/* Mobile menu button */}
@@ -52,11 +52,11 @@ const NavBar = () => {
                         Women's Clothing
                     </Link>
                     <Link
-                        to="jewelery"
-                        className={`${currentPage == "jewelery" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("jewelery")}
+                        to="jewellery"
+                        className={`${currentPage == "jewellery" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("jewellery")}
                     >
-                        Jewelery
+                        Jewellery
                     </Link>
                     <Link
                         to="electronics"
@@ -99,11 +99,11 @@ const NavBar = () => {
                         Women's Clothing
                     </Link>
                     <Link
-                        to="jewelery"
-                        className={`${currentPage == "jewelery" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("jewelery")}
+                        to="jewellery"
+                        className={`${currentPage == "jewellery" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
+                        onClick={() => setCurrentPage("jewellery")}
                     >
-                        Jewelery
+                        Jewellery
                     </Link>
                     <Link
                         to="electronics"
