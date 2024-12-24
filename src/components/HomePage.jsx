@@ -44,6 +44,10 @@ const HomePage = () => {
     return (
         <div className="w-[100%] m-auto">
             <Carousel slides={[MenWearImage, WomenWearImage, JewelleryImage, ElectronicsImage]}/>
+            <div>NEW DROPS</div>
+            <div>
+                
+            </div>
         </div>
     );
 };

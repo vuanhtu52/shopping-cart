@@ -1,7 +1,7 @@
-import CartIcon from "../../assets/svg/cart.svg";
-import MenuIcon from "../../assets/svg/menu.svg";
+import CartIcon from "../assets/svg/cart.svg";
+import MenuIcon from "../assets/svg/menu.svg";
 import { useState } from "react";
-import ArrowUpIcon from "../../assets/svg/arrow-up.svg";
+import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
