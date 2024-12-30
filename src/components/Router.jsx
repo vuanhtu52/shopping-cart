@@ -7,6 +7,7 @@ import JewelleryPage from "./JewelleryPage";
 import ElectronicsPage from "./ElectronicsPage";
 import CheckoutPage from "./CheckoutPage";
 import ErrorPage from "./ErrorPage";
+import ProductPage from "./ProductPage";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const Router = () => {
                 { path: "checkout", element: <CheckoutPage /> },
             ],
         },
+        {
+            path: "/product/:productId",
+            element: <ProductPage />
+        }
     ]);
 
     return <RouterProvider router={router} />;
