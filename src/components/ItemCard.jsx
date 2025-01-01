@@ -13,12 +13,10 @@ const ItemCard = ({ item }) => {
                     className="object-contain w-full min-h-64 h-64 p-4"
                 />
             </Link>
-            {/* <img
-                src={item["image"]}
-                alt={item["title"]}
-                className="object-contain w-full min-h-64 h-64 p-4"
-            /> */}
-            <div>{item["title"]}</div>
+            <Link 
+                to={`product/${item.id}`}
+                className="hover:text-[#fb923c]"
+            >{item["title"]}</Link>
             <div className="font-bold text-lg">$100</div>
             <button className="self-start bg-amber-300 p-2 rounded-xl text-sm">Add to cart</button>
         </div>
