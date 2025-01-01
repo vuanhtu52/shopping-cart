@@ -3,11 +3,10 @@ import MenuIcon from "../assets/svg/menu.svg";
 import { useState } from "react";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [currentPage, setCurrentPage] = useState("home");
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -16,6 +15,8 @@ const NavBar = () => {
     const closeMenu = () => {
         setMenuOpen(false);
     };
+
+    const location = useLocation();
 
     return (
         <div className="fixed top-0 w-full z-50">
@@ -30,41 +31,44 @@ const NavBar = () => {
                 <Link
                     to="/"
                     className="cursor-pointer font-dancing-script text-3xl"
-                    onClick={() => setCurrentPage("home")}
                 >
                     Random Shop
                 </Link>
 
                 {/* Navigation links */}
                 <div className="hidden items-center justify-between gap-16 lg:flex">
-                    <Link
+                    <NavLink
                         to="men"
-                        className={`${currentPage == "men" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("men")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        } 
                     >
                         Men's Clothing
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="women"
-                        className={`${currentPage == "women" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("women")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        } 
                     >
                         Women's Clothing
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="jewellery"
-                        className={`${currentPage == "jewellery" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("jewellery")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        } 
                     >
                         Jewellery
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="electronics"
-                        className={`${currentPage == "electronics" ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("electronics")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        } 
                     >
                         Electronics
-                    </Link>
+                    </NavLink>
                 </div>
 
                 {/* Shopping cart button */}
@@ -84,34 +88,38 @@ const NavBar = () => {
                 leaveTo="transform opacity-0 scale-y-0"
             >
                 <div className="flex flex-col bg-zinc-800 p-8 text-white">
-                    <Link
+                    <NavLink
                         to="men"
-                        className={`${currentPage == "men" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("men")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Men's Clothing
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="women"
-                        className={`${currentPage == "women" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("women")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Women's Clothing
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="jewellery"
-                        className={`${currentPage == "jewellery" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("jewellery")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Jewellery
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="electronics"
-                        className={`${currentPage == "electronics" ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`}
-                        onClick={() => setCurrentPage("electronics")}
+                        className={
+                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Electronics
-                    </Link>
+                    </NavLink>
                     <button
                         className="mt-8 h-8 w-8 self-center p-0"
                         onClick={closeMenu}
