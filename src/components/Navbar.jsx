@@ -19,7 +19,7 @@ const NavBar = () => {
     const location = useLocation();
 
     return (
-        <div className="fixed top-0 w-full z-50">
+        <div className="w-full z-50">
             {/* Top nav bar */}
             <div className="flex h-28 min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
                 {/* Mobile menu button */}
