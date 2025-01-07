@@ -40,40 +40,43 @@ const NavBar = () => {
                     <NavLink
                         to="men"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
-                        } 
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Men's Clothing
                     </NavLink>
                     <NavLink
                         to="women"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
-                        } 
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Women's Clothing
                     </NavLink>
                     <NavLink
                         to="jewellery"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
-                        } 
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Jewellery
                     </NavLink>
                     <NavLink
                         to="electronics"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
-                        } 
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                        }
                     >
                         Electronics
                     </NavLink>
                 </div>
 
                 {/* Shopping cart button */}
-                <Link to="checkout">
+                <Link to="checkout" className="relative">
                     <img src={CartIcon} alt="cart icon" className="w-8" />
+                    <span className="absolute -top-4 -right-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center w-7 h-7">
+                        1
+                    </span>
                 </Link>
             </div>
 
@@ -91,7 +94,7 @@ const NavBar = () => {
                     <NavLink
                         to="men"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
                         }
                     >
                         Men's Clothing
@@ -99,7 +102,7 @@ const NavBar = () => {
                     <NavLink
                         to="women"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
                         }
                     >
                         Women's Clothing
@@ -107,7 +110,7 @@ const NavBar = () => {
                     <NavLink
                         to="jewellery"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
                         }
                     >
                         Jewellery
@@ -115,7 +118,7 @@ const NavBar = () => {
                     <NavLink
                         to="electronics"
                         className={
-                            ({isActive}) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
                         }
                     >
                         Electronics
