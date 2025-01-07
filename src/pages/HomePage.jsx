@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Carousel from "./Carousel";
+import Carousel from "../components/Carousel";
 import MenWearImage from "../assets/jpg/men-wear.jpg";
 import WomenWearImage from "../assets/jpg/women-wear.jpg";
 import JewelleryImage from "../assets/jpg/jewellery.jpg";
 import ElectronicsImage from "../assets/jpg/electronics.png";
-import ItemCard from "./ItemCard";
+import ItemCard from "../components/ItemCard";
 
 const HomePage = () => {
     const [items, setItems] = useState([]);
