@@ -39,6 +39,16 @@ const App = () => {
 
             return updatedItems;
         });
+    };
+
+    const getTotalCartItems = () => {
+        let total = 0;
+
+        for (let key in cartItems) {
+            total += cartItems[key];
+        }
+
+        return total;
     }
 
     useEffect(() => {
@@ -52,7 +62,7 @@ const App = () => {
     }, []);
 
     return (
-        <ShopContext.Provider value={{ cartItems, products, addToCart, removeOneFromCart }}>
+        <ShopContext.Provider value={{ cartItems, products, addToCart, removeOneFromCart, getTotalCartItems }}>
             <div className="flex flex-col min-h-screen">
                 <NavBar />
                 <div className="flex-grow">

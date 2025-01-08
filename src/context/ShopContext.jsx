@@ -5,6 +5,7 @@ const ShopContext = createContext({
     cartItems: [],
     addToCart: () => {},
     removeOneFromCart: () => {},
+    getTotalCartItems: () => {},
 });
 
 export default ShopContext;

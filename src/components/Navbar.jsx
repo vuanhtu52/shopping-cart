@@ -1,12 +1,14 @@
 import CartIcon from "../assets/svg/cart.svg";
 import MenuIcon from "../assets/svg/menu.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ArrowUpIcon from "../assets/svg/arrow-up.svg";
 import { Transition } from "@headlessui/react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import ShopContext from "../context/ShopContext";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { cartItems, getTotalCartItems } = useContext(ShopContext);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -74,9 +76,13 @@ const NavBar = () => {
                 {/* Shopping cart button */}
                 <Link to="checkout" className="relative">
                     <img src={CartIcon} alt="cart icon" className="w-8" />
-                    <span className="absolute -top-4 -right-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center w-7 h-7">
-                        1
-                    </span>
+                    {
+                        getTotalCartItems() > 0 ?
+                            <span className="absolute -top-4 -right-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center w-7 h-7">
+                                {getTotalCartItems()}
+                            </span> :
+                            null
+                    }
                 </Link>
             </div>
 
