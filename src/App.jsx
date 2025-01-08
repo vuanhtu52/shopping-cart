@@ -6,17 +6,45 @@ import ShopContext from "./context/ShopContext";
 import { useEffect, useState } from "react";
 
 const App = () => {
-    const [cartItems, setCartItems] = useState([]);
-
+    const [cartItems, setCartItems] = useState({});
     const [products, setProducts] = useState([]);
 
-    const addToCart = () => { };
+    const addToCart = productId => { 
+        setCartItems(prevItems => {
+            const updatedItems = {...prevItems};
+
+            if (updatedItems.hasOwnProperty(productId)) {
+                updatedItems[productId] += 1;
+            } else {
+                updatedItems[productId] = 1;
+            }
+
+            return updatedItems;
+        });
+    };
+
+    const removeOneFromCart = productId => {
+        setCartItems(prevItems => {
+            const updatedItems = {...prevItems};
+
+            if (!updatedItems.hasOwnProperty(productId)) {
+                return updatedItems;
+            }
+
+            if (updatedItems[productId] > 1) {
+                updatedItems[productId] -= 1;
+            } else {
+                delete updatedItems[productId];
+            }
+
+            return updatedItems;
+        });
+    }
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
-            // .then(json=>console.log(json))
-            // .then(json => setItems(json))
+            // .then(json => setProducts(json))
             .then(json => {
                 setProducts(json);
                 console.log(json);
@@ -24,15 +52,7 @@ const App = () => {
     }, []);
 
     return (
-        // <div className="flex flex-col min-h-screen">
-        //     <NavBar />
-        //     <div className="flex-grow">
-        //         <Outlet />
-        //     </div>
-        //     <Footer />
-        // </div>
-
-        <ShopContext.Provider value={{ cartItems, products, addToCart }}>
+        <ShopContext.Provider value={{ cartItems, products, addToCart, removeOneFromCart }}>
             <div className="flex flex-col min-h-screen">
                 <NavBar />
                 <div className="flex-grow">
