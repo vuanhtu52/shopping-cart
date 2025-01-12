@@ -22,7 +22,7 @@ const ItemCard = ({ item }) => {
                 to={`product/${item.id}`}
                 className="hover:text-[#fb923c]"
             >{item["title"]}</Link>
-            <div className="font-bold text-lg">$100</div>
+            <div className="font-bold text-lg">${item.price}</div>
             {
                 !cartItems.hasOwnProperty(item.id) ?
                     <button

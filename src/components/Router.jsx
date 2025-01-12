@@ -22,7 +22,7 @@ const Router = () => {
                 { path: "jewellery", element: <JewelleryPage /> },
                 { path: "electronics", element: <ElectronicsPage /> },
                 { path: "checkout", element: <CheckoutPage /> },
-                {path: "product/:id", element: <ProductPage />}
+                {path: "product/:productId", element: <ProductPage />}
             ],
         },
     ]);
