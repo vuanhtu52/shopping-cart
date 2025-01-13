@@ -22,7 +22,7 @@ const ItemCard = ({ item }) => {
         <div className="flex flex-col min-w-60 w-60 gap-2 border border-gray-300 p-2 rounded-2xl">
             {/* Image of the item */}
             <Link
-                to={`product/${item.id}`}
+                to={`/product/${item.id}`}
             >
                 <img
                     src={item["image"]}
@@ -33,7 +33,7 @@ const ItemCard = ({ item }) => {
 
             {/* Title of the item */}
             <Link
-                to={`product/${item.id}`}
+                to={`/product/${item.id}`}
                 className="hover:text-[#fb923c]"
             >{item["title"]}</Link>
 
