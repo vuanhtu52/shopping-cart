@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import ShopContext from "../context/ShopContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProductPage = () => {
     const { products, cartItems } = useContext(ShopContext);
     const { productId } = useParams();
-    const [isImageLoaded, setIsImageLoaded] = useState(false);
+    const navigate = useNavigate();
 
     const getProduct = () => {
         for (const product of products) {
@@ -29,10 +29,14 @@ const ProductPage = () => {
         return 0;
     }
 
+    const handleClickBack = () => {
+        navigate(-1);
+    }
+
     return (
         <div className="p-8">
             {/* Back button */}
-            <button className="hover:text-[#fb923c]">&lt; Back</button>
+            <button className="hover:text-[#fb923c]" onClick={() => handleClickBack()}>&lt; Back</button>
 
             <div className="grid gap-16 md:gap-32 grid-cols-1 sm:grid-cols-2 mt-16">
                 {/* Image on the left */}
@@ -41,7 +45,6 @@ const ProductPage = () => {
                         src={product.image}
                         alt={product.title}
                         className="object-contain min-w-24 max-w-80 h-auto"
-                        onLoad={() => setIsImageLoaded(true)}
                     />
                 </div>
 
