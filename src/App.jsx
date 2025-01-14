@@ -23,6 +23,20 @@ const App = () => {
         });
     };
 
+    const addMultipleToCart = (productId, quantity) => {
+        setCartItems(prevItems => {
+            const updatedItems = {...prevItems};
+
+            if (updatedItems.hasOwnProperty(productId)) {
+                updatedItems[productId] += quantity;
+            } else {
+                updatedItems[productId] = quantity;
+            }
+
+            return updatedItems;
+        });
+    }
+
     const removeOneFromCart = productId => {
         setCartItems(prevItems => {
             const updatedItems = {...prevItems};
@@ -62,7 +76,7 @@ const App = () => {
     }, []);
 
     return (
-        <ShopContext.Provider value={{ cartItems, products, addToCart, removeOneFromCart, getTotalCartItems }}>
+        <ShopContext.Provider value={{ cartItems, products, addToCart, addMultipleToCart, removeOneFromCart, getTotalCartItems }}>
             <div className="flex flex-col min-h-screen">
                 <NavBar />
                 <div className="flex-grow">

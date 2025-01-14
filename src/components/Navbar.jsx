@@ -79,7 +79,7 @@ const NavBar = () => {
                     {
                         getTotalCartItems() > 0 ?
                             <span className="absolute -top-4 -right-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center w-7 h-7">
-                                {getTotalCartItems()}
+                                {getTotalCartItems() <= 99 ? getTotalCartItems() : "99+"}
                             </span> :
                             null
                     }
