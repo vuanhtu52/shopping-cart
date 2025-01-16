@@ -6,7 +6,9 @@ const ShopContext = createContext({
     addToCart: () => {},
     addMultipleToCart: () => {},
     removeOneFromCart: () => {},
+    removeFromCart: () => {},
     getTotalCartItems: () => {},
+    getTotalCartPrice: () => {},
 });
 
 export default ShopContext;

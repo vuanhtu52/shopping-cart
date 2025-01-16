@@ -35,6 +35,16 @@ const App = () => {
 
             return updatedItems;
         });
+    };
+
+    const updateCart = (productId, quantity) => {
+        setCartItems(prevItems => {
+            const updatedItems = {...prevItems};
+
+            updatedItems[productId] = quantity;
+
+            return updatedItems;
+        });
     }
 
     const removeOneFromCart = productId => {
@@ -55,6 +65,14 @@ const App = () => {
         });
     };
 
+    const removeFromCart = productId => {
+        setCartItems(prevItems => {
+            const updatedItems = {...prevItems};
+            delete updatedItems[productId];
+            return updatedItems;
+        });
+    };
+
     const getTotalCartItems = () => {
         let total = 0;
 
@@ -63,7 +81,20 @@ const App = () => {
         }
 
         return total;
-    }
+    };
+
+    const getTotalCartPrice = () => {
+        let total = 0;
+        for (const product of products) {
+            if (cartItems.hasOwnProperty(product.id)) {
+                total += product.price * cartItems[product.id];
+            }
+        }
+
+        total = parseFloat(total.toFixed(2));
+
+        return total;
+    };
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -76,7 +107,7 @@ const App = () => {
     }, []);
 
     return (
-        <ShopContext.Provider value={{ cartItems, products, addToCart, addMultipleToCart, removeOneFromCart, getTotalCartItems }}>
+        <ShopContext.Provider value={{ cartItems, products, addToCart, addMultipleToCart, updateCart, removeOneFromCart, removeFromCart, getTotalCartItems, getTotalCartPrice }}>
             <div className="flex flex-col min-h-screen">
                 <NavBar />
                 <div className="flex-grow">
