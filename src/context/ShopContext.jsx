@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 const ShopContext = createContext({
     products: [],
-    cartItems: [],
+    cartItems: {},
     addToCart: () => {},
     addMultipleToCart: () => {},
     removeOneFromCart: () => {},
