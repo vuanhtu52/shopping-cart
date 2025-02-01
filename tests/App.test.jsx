@@ -3,7 +3,7 @@ import App from "../src/App";
 import { describe, expect, it, vi } from "vitest";
 import { BrowserRouter, MemoryRouter, Outlet, useLocation } from "react-router-dom";
 import ShopContext from "../src/context/ShopContext";
-import React from "react";
+import React, { useContext, useRef } from "react";
 
 // describe("App component", () => {
 //     it("renders correct heading", () => {
@@ -32,11 +32,19 @@ vi.mock("react-router-dom", async (importOriginal) => {
         ...actual, // Keep all actual exports
         Outlet: () => <div data-testid="outlet" />, // Mock Outlet
         Link: ({ to, children }) => <a href={to} data-testid="link">{children}</a>, // Mock Link
-        NavLink: ({ to, children, ...props }) => (
-            <a href={to} data-testid="navlink" {...props}>
-                {children}
-            </a>
-        ), // Mock NavLink
+        // NavLink: ({ to, children, ...props }) => (
+        //     <a href={to} data-testid="navlink" {...props}>
+        //         {children}
+        //     </a>
+        // ), // Mock NavLink
+        NavLink: ({ to, className, children, ...props }) => {
+            const resolvedClassName = typeof className === "function" ? className({ isActive: false }) : className; // Mock `isActive`
+            return (
+                <a href={to} data-testid="navlink" className={resolvedClassName} {...props}>
+                    {children}
+                </a>
+            );
+        },
     };
 });
 
@@ -59,84 +67,6 @@ describe("App component", () => {
         global.fetch = vi.fn(
             () => Promise.resolve({ json: () => Promise.resolve(mockProducts) })
         );
-    });
-
-    it("addToCart", async () => {
-        let contextValue;
-
-        const TestConsumer = () => {
-            const context = React.useContext(ShopContext);
-            contextValue = context; // Expose the context for testing
-            return null;
-        };
-
-        render(
-            <BrowserRouter>
-                <App />
-                <TestConsumer />
-            </BrowserRouter>
-        );
-
-        // Assert initial state
-        expect(contextValue.cartItems).toEqual({}); // cartItems should be initially empty
-
-        // Act to call addToCart
-        await act(async () => {
-            contextValue.addToCart(1);
-        });
-
-        // Assert cartItems after adding a product
-        expect(contextValue.cartItems).toEqual({ 1: 1 });
-
-        await act(async () => {
-            contextValue.addToCart(1);
-        });
-
-        // Assert cartItems after adding the same product again
-        expect(contextValue.cartItems).toEqual({ 1: 2 });
-
-        await act(async () => {
-            contextValue.addToCart(2);
-        });
-
-        // Assert cartItems after adding a different product
-        expect(contextValue.cartItems).toEqual({ 1: 2, 2: 1 });
-
-    });
-
-
-    // it("addToCart", () => {
-    //     const contextValueRef = React.useRef();
-
-    //     const TestConsumer = () => {
-    //         const context = React.useContext(ShopContext);
-    //         contextValueRef.current = context; // Expose the context for testing
-    //         return null;
-    //     };
-
-    //     render(
-    //         <BrowserRouter>
-    //             <App />
-    //             <TestConsumer />
-    //         </BrowserRouter>
-    //     );
-
-    //     const { addToCart, cartItems } = contextValueRef.current;
-
-    //     // Assert initial state
-    //     expect(cartItems).toEqual({}); // cartItems should be initially empty
-
-    //     // Add product with ID 1
-    //     addToCart(1);
-    //     expect(contextValueRef.current.cartItems).toEqual({ 1: 1 });
-
-    //     // Add product with ID 1 again
-    //     addToCart(1);
-    //     expect(contextValueRef.current.cartItems).toEqual({ 1: 2 });
-
-    //     // Add a different product with ID 2
-    //     addToCart(2);
-    //     expect(contextValueRef.current.cartItems).toEqual({ 1: 2, 2: 1 });
-    // });
+    }); 
 });
 

@@ -42,7 +42,7 @@ const NavBar = () => {
                     <NavLink
                         to="men"
                         className={
-                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`.trim()
                         }
                     >
                         Men's Clothing
@@ -50,7 +50,7 @@ const NavBar = () => {
                     <NavLink
                         to="women"
                         className={
-                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`.trim()
                         }
                     >
                         Women's Clothing
@@ -58,7 +58,7 @@ const NavBar = () => {
                     <NavLink
                         to="jewellery"
                         className={
-                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`.trim()
                         }
                     >
                         Jewellery
@@ -66,7 +66,7 @@ const NavBar = () => {
                     <NavLink
                         to="electronics"
                         className={
-                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`
+                            ({ isActive }) => `${isActive ? "underline" : ""} font-noto-sans underline-offset-8 hover:underline`.trim()
                         }
                     >
                         Electronics
@@ -91,7 +91,7 @@ const NavBar = () => {
                 show={menuOpen}
                 enter="transition duration-150 origin-top ease-in-out"
                 enterFrom="transform opacity-0 scale-y-0"
-                enterTo="transfrom opacity-100 scale-y-100"
+                enterTo="transform opacity-100 scale-y-100"
                 leave="transition duration-150 origin-top ease-in-out"
                 leaveFrom="transform opacity-100 scale-y-100"
                 leaveTo="transform opacity-0 scale-y-0"

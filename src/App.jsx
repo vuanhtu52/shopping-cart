@@ -8,10 +8,8 @@ import { useEffect, useState } from "react";
 const App = () => {
     const [cartItems, setCartItems] = useState({});
     const [products, setProducts] = useState([]);
-    console.log("Inside app");
 
     const addToCart = productId => { 
-        console.log(">>>>> Calling addToCart");
         setCartItems(prevItems => {
             const updatedItems = {...prevItems};
 
