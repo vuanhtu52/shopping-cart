@@ -20,6 +20,7 @@ const Carousel = ({ slides }) => {
         <div className="relative w-full h-[600px] overflow-hidden">
             {/* The images */}
             <div
+                role="wrapper"
                 className="flex transition-transform duration-500 ease-out h-full w-full"
                 style={{
                     transform: `translateX(-${current * 100}%)`,
@@ -37,10 +38,10 @@ const Carousel = ({ slides }) => {
 
             {/* Navigation buttons */}
             <div className="absolute inset-0 flex justify-between items-center px-4 text-gray-400">
-                <button onClick={previousSlide}>
+                <button onClick={previousSlide} data-testid="previous-button">
                     <FaCircleArrowLeft size={30} />
                 </button>
-                <button onClick={nextSlide}>
+                <button onClick={nextSlide} data-testid="next-button">
                     <FaCircleArrowRight size={30} />
                 </button>
             </div>
@@ -49,6 +50,7 @@ const Carousel = ({ slides }) => {
             <div className="absolute bottom-4 flex justify-center gap-2 w-full">
                 {slides.map((_, i) => (
                     <div
+                        role="indicator"
                         key={`indicator-${i}`}
                         className={`w-3 h-3 rounded-full cursor-pointer ${i === current ? "bg-black" : "bg-gray-400"
                             }`}

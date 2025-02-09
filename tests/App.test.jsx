@@ -5,26 +5,6 @@ import { BrowserRouter, MemoryRouter, Outlet, useLocation } from "react-router-d
 import ShopContext from "../src/context/ShopContext";
 import React, { useContext, useRef } from "react";
 
-// describe("App component", () => {
-//     it("renders correct heading", () => {
-//         render(
-//             <BrowserRouter>
-//                 <App />
-//             </BrowserRouter>,
-//         );
-//         // expect(screen.getByRole("heading").textContent).toMatch(
-//         //     /our first test/i,
-//         // );
-//         expect(screen.getAllByRole("button")[0]).toBeInTheDocument();
-//     });
-// });
-
-// Mock the outlet
-// vi.mock("react-router-dom", () => ({
-//     Outlet: () => <div data-testid="outlet" />,
-//     Link: ({to, children}) => <a href={to} data-testid="link">{children}</a>,
-//     useLocation: () => ({pathname: "/"}),
-// }));
 
 vi.mock("react-router-dom", async (importOriginal) => {
     const actual = await importOriginal(); // Import the actual implementation
@@ -32,11 +12,6 @@ vi.mock("react-router-dom", async (importOriginal) => {
         ...actual, // Keep all actual exports
         Outlet: () => <div data-testid="outlet" />, // Mock Outlet
         Link: ({ to, children }) => <a href={to} data-testid="link">{children}</a>, // Mock Link
-        // NavLink: ({ to, children, ...props }) => (
-        //     <a href={to} data-testid="navlink" {...props}>
-        //         {children}
-        //     </a>
-        // ), // Mock NavLink
         NavLink: ({ to, className, children, ...props }) => {
             const resolvedClassName = typeof className === "function" ? className({ isActive: false }) : className; // Mock `isActive`
             return (
