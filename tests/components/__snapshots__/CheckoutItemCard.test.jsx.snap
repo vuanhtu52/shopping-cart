@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CheckoutItemCard component > Component renders correctly 1`] = `
+<div>
+  <div
+    class="flex w-full gap-8 border-b border-gray-300"
+  >
+    <a
+      class="w-1/6 flex justify-center items-center"
+      href="/product/1"
+    >
+      <img
+        alt="Test Product"
+        class="object-contain min-w-32 w-32 p-4"
+        src="assets/jpg/electronics.jpg"
+      />
+    </a>
+    <div
+      class="w-2/3 flex flex-col gap-4 items-start justify-center"
+    >
+      <a
+        class="font-bold hover:text-[#fb923c]"
+        href="/product/1"
+      >
+        Test Product
+      </a>
+      <div
+        class="flex gap-4 justify-center items-center"
+      >
+        <button
+          class="w-5 h-5 flex justify-center items-center"
+        >
+          -
+        </button>
+        <input
+          class="min-w-24 text-center border border-[#d6d3d1] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          max="1000"
+          min="0"
+          type="number"
+          value="2"
+        />
+        <button
+          class="w-5 h-5 flex justify-center items-center"
+        >
+          +
+        </button>
+      </div>
+      <button
+        class="text-sm text-[#ef4444] hover:underline"
+        data-testid="delete-button"
+      >
+        Delete
+      </button>
+    </div>
+    <div
+      class="w-1/6 flex justify-center items-center"
+      data-testid="total-price"
+    >
+      20
+    </div>
+  </div>
+</div>
+`;

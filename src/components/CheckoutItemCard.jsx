@@ -27,15 +27,16 @@ const CheckoutItemCard = ({ productId }) => {
     };
 
     const handleInputChange = e => {
-        const value = Number(e.target.value);
+        const newValue = Number(e.target.value);
 
-        if (value > 1000) {
+        if (newValue > 1000) {
             updateCart(productId, 1000);
-        } else if (value < 0) {
+        } else if (newValue < 0) {
             updateCart(productId, 0);
         } else {
-            updateCart(productId, value);
+            updateCart(productId, newValue);
         }
+
     };
 
     const handleClickDelete = () => {
@@ -57,7 +58,7 @@ const CheckoutItemCard = ({ productId }) => {
                     {
                         cartItems[productId] > 1 ?
                             <button className="w-5 h-5 flex justify-center items-center" onClick={handleClickDecrement}>-</button> :
-                            <button className="w-5 h-5" onClick={handleClickDecrement}>
+                            <button data-testid="decrement-button" className="w-5 h-5" onClick={handleClickDelete}>
                                 <img src={BinIcon} />
                             </button>
                     }
@@ -71,9 +72,9 @@ const CheckoutItemCard = ({ productId }) => {
                     />
                     <button className="w-5 h-5 flex justify-center items-center" onClick={handleClickIncrement}>+</button>
                 </div>
-                <button className="text-sm text-[#ef4444] hover:underline" onClick={handleClickDelete}>Delete</button>
+                <button data-testid="delete-button" className="text-sm text-[#ef4444] hover:underline" onClick={handleClickDelete}>Delete</button>
             </div>
-            <div className="w-1/6 flex justify-center items-center">{parseFloat((product.price * cartItems[productId]).toFixed(2))}</div>
+            <div data-testid="total-price" className="w-1/6 flex justify-center items-center">{parseFloat((product.price * cartItems[productId]).toFixed(2))}</div>
         </div>
     );
 }

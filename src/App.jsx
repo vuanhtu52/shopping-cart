@@ -48,6 +48,7 @@ const App = () => {
     }
 
     const removeOneFromCart = productId => {
+        console.log("hello");
         setCartItems(prevItems => {
             const updatedItems = {...prevItems};
 

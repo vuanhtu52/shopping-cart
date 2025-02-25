@@ -7,6 +7,7 @@ const ShopContext = createContext({
     addMultipleToCart: () => {},
     removeOneFromCart: () => {},
     removeFromCart: () => {},
+    updateCart: () => {},
     getTotalCartItems: () => {},
     getTotalCartPrice: () => {},
 });
