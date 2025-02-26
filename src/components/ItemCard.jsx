@@ -52,13 +52,13 @@ const ItemCard = ({ item }) => {
                     <div className="self-start flex justify-center items-center border-2 border-amber-300 rounded-xl p-1">
                         {
                             currentQuantity > 1 ?
-                            <button className="w-5 h-5 flex justify-center items-center" onClick={() => handleClickDecrement()}>-</button> :
-                            <button className="w-5 h-5" onClick={() => handleClickDecrement()}>
+                            <button data-testid="decrement-button" className="w-5 h-5 flex justify-center items-center" onClick={() => handleClickDecrement()}>-</button> :
+                            <button data-testid="delete-button" className="w-5 h-5" onClick={() => handleClickDecrement()}>
                                 <img src={BinIcon} />
                             </button>
                         }
-                        <div className="w-20 text-center">{currentQuantity}</div>
-                        <button className="w-5 h-5 flex justify-center items-center" onClick={() => handleClickIncrement()}>+</button>
+                        <div data-testid="quantity-display" className="w-20 text-center">{currentQuantity}</div>
+                        <button data-testid="increment-button" className="w-5 h-5 flex justify-center items-center" onClick={() => handleClickIncrement()}>+</button>
                     </div>
             }
         </div>
