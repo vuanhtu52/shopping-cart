@@ -25,7 +25,7 @@ const NavBar = () => {
             {/* Top nav bar */}
             <div className="flex h-28 min-w-96 items-center justify-between gap-16 bg-zinc-800 p-8 text-white">
                 {/* Mobile menu button */}
-                <button className="block lg:hidden" onClick={toggleMenu}>
+                <button data-testid="menu-button" className="block lg:hidden" onClick={toggleMenu}>
                     <img src={MenuIcon} alt="menu icon" className="w-8" />
                 </button>
 
@@ -74,7 +74,7 @@ const NavBar = () => {
                 </div>
 
                 {/* Shopping cart button */}
-                <Link to="checkout" className="relative">
+                <Link data-testid="cart-link" to="checkout" className="relative">
                     <img src={CartIcon} alt="cart icon" className="w-8" />
                     {
                         getTotalCartItems() > 0 ?
@@ -98,6 +98,7 @@ const NavBar = () => {
             >
                 <div className="flex flex-col bg-zinc-800 p-8 text-white">
                     <NavLink
+                        data-testid="men-mobile"
                         to="men"
                         className={
                             ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
@@ -106,6 +107,7 @@ const NavBar = () => {
                         Men's Clothing
                     </NavLink>
                     <NavLink
+                        data-testid="women-mobile"
                         to="women"
                         className={
                             ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
@@ -114,6 +116,7 @@ const NavBar = () => {
                         Women's Clothing
                     </NavLink>
                     <NavLink
+                        data-testid="jewellery-mobile"
                         to="jewellery"
                         className={
                             ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
@@ -122,6 +125,7 @@ const NavBar = () => {
                         Jewellery
                     </NavLink>
                     <NavLink
+                        data-testid="electronics-mobile"
                         to="electronics"
                         className={
                             ({ isActive }) => `${isActive ? "underline" : ""} border-b border-gray-500 py-4 font-noto-sans underline-offset-8 hover:underline`
@@ -130,6 +134,7 @@ const NavBar = () => {
                         Electronics
                     </NavLink>
                     <button
+                        data-testid="close-button"
                         className="mt-8 h-8 w-8 self-center p-0"
                         onClick={closeMenu}
                     >
