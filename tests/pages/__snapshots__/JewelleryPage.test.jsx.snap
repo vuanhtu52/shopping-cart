@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JewelleryPage component > Snapshot testing 1`] = `
+<div>
+  <div>
+    <h2
+      class="text-center text-xl font-bold p-4"
+    >
+      Jewellery
+    </h2>
+    <div
+      class="grid gap-8 justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-4"
+    >
+      <div
+        class="flex flex-col min-w-60 w-60 gap-2 border border-gray-300 p-2 rounded-2xl"
+      >
+        <a
+          href="/product/1"
+        >
+          <img
+            alt="Necklace"
+            class="object-contain w-full min-h-64 h-64 p-4"
+            src="necklace.jpg"
+          />
+        </a>
+        <a
+          class="hover:text-[#fb923c]"
+          href="/product/1"
+        >
+          Necklace
+        </a>
+        <div
+          class="font-bold text-lg"
+        >
+          $
+          100
+        </div>
+        <button
+          class="self-start bg-amber-300 p-2 rounded-xl text-sm"
+        >
+          Add to cart
+        </button>
+      </div>
+      <div
+        class="flex flex-col min-w-60 w-60 gap-2 border border-gray-300 p-2 rounded-2xl"
+      >
+        <a
+          href="/product/2"
+        >
+          <img
+            alt="Bracelet"
+            class="object-contain w-full min-h-64 h-64 p-4"
+            src="bracelet.jpg"
+          />
+        </a>
+        <a
+          class="hover:text-[#fb923c]"
+          href="/product/2"
+        >
+          Bracelet
+        </a>
+        <div
+          class="font-bold text-lg"
+        >
+          $
+          50
+        </div>
+        <button
+          class="self-start bg-amber-300 p-2 rounded-xl text-sm"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
