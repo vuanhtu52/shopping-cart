@@ -50,7 +50,7 @@ const ProductPage = () => {
     return (
         <div className="p-8">
             {/* Back button */}
-            <button className="hover:text-[#fb923c]" onClick={() => handleClickBack()}>&lt; Back</button>
+            <button data-testid="back-button" className="hover:text-[#fb923c]" onClick={() => handleClickBack()}>&lt; Back</button>
 
             <div className="grid gap-16 md:gap-32 grid-cols-1 sm:grid-cols-2 mt-16">
                 {/* Image on the left */}
@@ -70,6 +70,7 @@ const ProductPage = () => {
                     <div>QUANTITY</div>
                     <div className="flex gap-2">
                         <button
+                            data-testid="decrement-button"
                             className={`${quantity === 0 ? "disabled:opacity-50 disabled:cursor-not-allowed" : "hover:bg-[#a8a29e]"} p-2`}
                             disabled={quantity === 0}
                             onClick={handleClickDecrement}
@@ -85,6 +86,7 @@ const ProductPage = () => {
                             onChange={handleInputChange}
                         />
                         <button
+                            data-testid="increment-button"
                             className={`${quantity === 1000 ? "disabled:opacity-50 disabled:cursor-not-allowed" : "hover:bg-[#a8a29e]"} p-2`}
                             disabled={quantity === 1000}
                             onClick={handleClickIncrement}
@@ -99,7 +101,7 @@ const ProductPage = () => {
                     >
                         Add to cart
                     </button>
-                    <button className="border border-1 border-black rounded-full p-2 hover:text-white hover:bg-black" onClick={() => navigate("/checkout")}>
+                    <button data-testid="checkout-button" className="border border-1 border-black rounded-full p-2 hover:text-white hover:bg-black" onClick={() => navigate("/checkout")}>
                         Check out
                     </button>
                 </div>
