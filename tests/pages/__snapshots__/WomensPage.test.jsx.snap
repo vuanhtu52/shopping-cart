@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`WomensPage component > Snapshot testing 1`] = `
+<div>
+  <div>
+    <h2
+      class="text-center text-xl font-bold p-4"
+    >
+      Women's Clothing
+    </h2>
+    <div
+      class="grid gap-8 justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-4"
+    />
+  </div>
+</div>
+`;
